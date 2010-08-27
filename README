@@ -1,0 +1,9 @@
+tiny_core_accounts
+
+Simple account management based on tiny_core_users.
+
+Usage:
+
+  script/generate tiny_account
+
+Note: this is pre-alpha and very likely to change in an incompatible fashion.
