@@ -27,7 +27,7 @@ module TinyCore
 
       module InstanceMethods
         def after_initialize
-          extend "::Role::Account::#{self.role.classify}".constantize
+          extend "::Role::Account::#{self.role.classify}".constantize if self.role
         end
 
       protected

@@ -10,8 +10,10 @@ class TinyAccountGenerator < Rails::Generator::Base
       m.directory 'app/controllers/admin'
       m.directory 'app/views/accounts'
       m.directory 'app/views/admin/accounts'
+      m.directory 'config/locales'
       m.directory 'test/unit'
       m.directory 'test/functional'
+      m.directory 'test/functional/admin'
 
       # Classes and tests.
       m.file "account.rb", 'app/models/account.rb'
@@ -21,9 +23,13 @@ class TinyAccountGenerator < Rails::Generator::Base
       m.file "accounts_controller.rb", 'app/controllers/accounts_controller.rb'
       m.file "user_accounts_controller.rb", 'app/controllers/user_accounts_controller.rb'
       m.file "admin_accounts_controller.rb", 'app/controllers/admin/accounts_controller.rb'
-      m.file "accounts_controller_test.rb", 'test/functional/accounst_controller_test.rb'
+      m.file "accounts_controller_test.rb", 'test/functional/accounts_controller_test.rb'
       m.file "user_accounts_controller_test.rb", 'test/functional/user_accounst_controller_test.rb'
-      m.file "admin_accounts_controller_test.rb", 'test/functional/admin_accounts_controller_test.rb'
+      m.file "admin_accounts_controller_test.rb", 'test/functional/admin/accounts_controller_test.rb'
+      
+      # Locales
+      m.file "accounts_en.yml", 'config/locales/accounts_en.yml'
+      m.file "accounts_de.yml", 'config/locales/accounts_de.yml'
       
       # Views
       base_dir = File.dirname(__FILE__) + '/templates'
@@ -33,9 +39,7 @@ class TinyAccountGenerator < Rails::Generator::Base
       end
       
       # Migrations
-      m.migration_template 'create_accounts.rb', 'db/migrate', :migration_file_name => 'create_accounts.rb'
-      m.migration_template 'create_user_accounts.rb', 'db/migrate', :migration_file_name => 'create_user_accounts.rb'
-      m.migration_template 'add_current_account_id_to_users.rb', 'db/migrate', :migration_file_name => 'add_current_account_id_to_users.rb'
+      m.migration_template 'create_accounts.rb', 'db/migrate', :migration_file_name => 'create_accounts'
     end
   end
 end
